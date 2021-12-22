@@ -1,38 +1,155 @@
-.App {
-  text-align: center;
+body {
+  background: chartreuse;
+  font-size: 50px;
+  font-family: cursive, Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+  display: flex;
+  flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.modes {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button {
+  transition: 0.5s;
+  width: 400px;
+  height: 100px;
+  padding: 10px;
+  color: white;
+  font-size: 50px;
+  background: #1f51ff;
+  border: 5px solid black;
+}
+
+button:hover {
+  transition: 0.5s;
+  scale: 1.2;
+  box-shadow: 0px 0px 10px 10px white, 0px 0px 30px 30px cyan;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  row-gap: 50px;
+}
+
+.container {
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  row-gap: 20px;
+}
+
+.board {
+  width: 810px;
+  height: 810px;
+  display: flex;
+  flex-direction: column;
+  background: black;
+  box-shadow: 0px 0px 3px 3px black;
+}
+
+.row {
+  display: flex;
+  flex: 1 1 auto;
+  align-self: stretch;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.square {
+  transition: 0.3s;
+  width: 200px;
+  height: 200px;
+  background: pink;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 10px white;
+}
+
+.square:hover {
+  transition: 0.3s;
+  scale: 1.05;
+}
+
+.winning-square {
+  transition: all 1s;
+  width: 200px;
+  height: 200px;
+  background: violet;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 10px red, inset 0px 0px 5px 5px purple;
+}
+
+.hidden {
+  display: none;
+}
+
+.end-screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  position: absolute;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background: #00000099;
+  -webkit-animation: fadein 5s;
+  -moz-animation: fadein 5s;
+  -ms-animation: fadein 5s;
+  -o-animation: fadein 5s;
+  animation: fadein 5s;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes fadein {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
   }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.end-screen h1 {
+  color: white;
 }
