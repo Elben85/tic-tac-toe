@@ -100,7 +100,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 50px;
-  position: absolute;
+  position: fixed;
   justify-content: center;
   align-items: center;
   background: #00000099;
