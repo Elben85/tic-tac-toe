@@ -9,7 +9,7 @@ import PVE from "./webPages/PVE.js";
 function App() {
   return (
     <BrowserRouter>
-      <Routing></Routing>
+      <Routing />
     </BrowserRouter>
   );
 }

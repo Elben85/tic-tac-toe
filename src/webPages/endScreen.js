@@ -2,7 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import { CellContents, initialGrid } from "../webComponent/const.js";
-import { findWinningSquares } from "../webComponent/Game.js";
+import { findWinningSquares } from "../webComponent/gameLogic.js";
 
 const fadeIn = keyframes`
 from {

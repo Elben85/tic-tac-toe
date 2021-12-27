@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Board } from "../webComponent/Board.js";
 import {
-  Board,
-  findWinningSquares,
   calculateNextGrid,
-} from "../webComponent/Game.js";
+  isGameDone,
+  findNextMove,
+} from "../webComponent/gameLogic.js";
 import { PVEEndScreen } from "./endScreen.js";
 import { computerPlay } from "../webComponent/Computer.js";
 import { CellContents, initialGrid } from "../webComponent/const.js";
@@ -19,19 +20,9 @@ const Container = styled.div`
 
 function PVE() {
   const [grid, setGrid] = useState(initialGrid);
-  const isGameOver =
-    findWinningSquares(grid) !== null ||
-    grid.filter((square) => square.image === CellContents.EMPTY).length === 0;
+  const isGameOver = isGameDone(grid);
 
-  const nextMove =
-    grid.reduce(
-      (acc, square) => acc + (square.image === CellContents.EMPTY ? 0 : 1),
-      0
-    ) %
-      2 ===
-    0
-      ? CellContents.CROSS
-      : CellContents.CIRCLE;
+  const nextMove = findNextMove(grid);
 
   function handleSquareClick(target) {
     if (isGameOver || nextMove === CellContents.CIRCLE) {
