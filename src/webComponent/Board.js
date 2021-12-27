@@ -74,12 +74,16 @@ function IndividualSquare({ square, handleClick }) {
 export function Board({ squares, handleClick }) {
   return (
     <Container>
-      {_.chunk(squares, 3).map((row) => {
+      {_.chunk(squares, 3).map((row, index) => {
         return (
-          <Row>
+          <Row key={"row " + index}>
             {row.map((square) => {
               return (
-                <IndividualSquare square={square} handleClick={handleClick} />
+                <IndividualSquare
+                  key={square.id}
+                  square={square}
+                  handleClick={handleClick}
+                />
               );
             })}
           </Row>
